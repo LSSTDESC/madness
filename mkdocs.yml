@@ -1,0 +1,15 @@
+site_name: MADNESS Deblender
+site_url: https://example.com/
+nav:
+  - Home: index.md
+  - Tutorials:
+    - Deblending: tutorial_notebooks/deblending.ipynb
+    - Training: tutorial_notebooks/training.ipynb
+    - Config: tutorial_notebooks/config.ipynb
+  - About:
+    - Contributors: contributors.md
+    - Cite: citation.md
+    - License: License.md
+plugins:
+    - mkdocs-jupyter
+theme: readthedocs
