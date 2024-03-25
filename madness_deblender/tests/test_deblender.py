@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from maddeb.Deblender import Deblend, compute_residual
+from madness_deblender.Deblender import Deblend, compute_residual
 
 
 def test_deblending():

@@ -7,8 +7,8 @@ import tensorflow as tf
 import tensorflow.keras.backend as K
 import tensorflow_probability as tfp
 
-from maddeb.losses import flow_loss_fn
-from maddeb.model import create_encoder, create_model_fvae
+from madness_deblender.losses import flow_loss_fn
+from madness_deblender.model import create_encoder, create_model_fvae
 
 tfd = tfp.distributions
 tfb = tfp.bijectors
