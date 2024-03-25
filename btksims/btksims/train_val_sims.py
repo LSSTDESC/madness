@@ -13,10 +13,10 @@ import numpy as np
 import pandas as pd
 import yaml
 from astropy.table import Table
-
-from btksims.sampling import CustomSampling
 from maddeb.extraction import extract_cutouts
 from maddeb.utils import get_maddeb_config_path
+
+from btksims.sampling import CustomSampling
 
 logging.basicConfig(format="%(message)s", level=logging.INFO)
 

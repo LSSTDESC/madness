@@ -11,7 +11,6 @@ import btk.sampling_functions
 import btk.survey
 import galsim
 import numpy as np
-
 from maddeb.Deblender import Deblend
 
 sys.path.insert(0, "../")
