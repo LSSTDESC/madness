@@ -6,7 +6,7 @@ authors = ["Biswajit Biswas <biswas@apc.in2p3.fr>"]
 readme = "README.md"
 keywords = ["galaxies", "deblending", "cosmology", "generative models"]
 license = "MIT"
-include = ["maddeb/data/*", "btksims"]
+include = ["madness_deblender/data/*", "btksims"]
 repository = "https://github.com/b-biswas/madness"
 
 [tool.poetry.dependencies]

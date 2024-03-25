@@ -2,4 +2,4 @@
 
 from importlib import metadata
 
-__version__ = metadata.version("maddeb")
+__version__ = metadata.version("madness_deblender")
