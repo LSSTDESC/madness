@@ -10,7 +10,6 @@ import tensorflow as tf
 import tensorflow_probability as tfp
 import yaml
 from galcheat.utilities import mean_sky_level
-
 from maddeb.callbacks import changeAlpha, define_callbacks
 from maddeb.dataset_generator import batched_CATSIMDataset
 from maddeb.FlowVAEnet import FlowVAEnet

@@ -46,6 +46,8 @@ def get_madness_deblender_config_path():
 
     """
     curdir = os.path.dirname(os.path.abspath(__file__))
-    get_madness_deblender_config_path = os.path.join(curdir, "madness_deblender_config.yaml")
+    get_madness_deblender_config_path = os.path.join(
+        curdir, "madness_deblender_config.yaml"
+    )
 
     return get_madness_deblender_config_path
