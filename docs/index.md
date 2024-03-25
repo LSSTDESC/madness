@@ -1,4 +1,4 @@
-# Welcome to MkDocs
+# Welcome to MADNESS deblender documentation
 
 The MADNESS Deblender is being developed with the LSST DESC Collaboration to deblended galaxies from a blended source using machine learning. The algorithm obtains the maximum a posterior solution to the inverse problem of deblending using Variational Auto Encoders (VAEs) and Normalizing Flows (NFs).
 
