@@ -8,12 +8,12 @@ import tensorflow as tf
 import tensorflow_datasets as tfds
 import yaml
 
-from maddeb.utils import get_maddeb_config_path
+from madness_deblender.utils import get_madness_deblender_config_path
 
-with open(get_maddeb_config_path()) as f:
-    maddeb_config = yaml.safe_load(f)
+with open(get_madness_deblender_config_path()) as f:
+    madness_deblender_config = yaml.safe_load(f)
 
-survey = galcheat.get_survey(maddeb_config["survey_name"])
+survey = galcheat.get_survey(madness_deblender_config["survey_name"])
 
 _DESCRIPTION = """
 #Galaxies from CATSIM WL Deblending catalogue

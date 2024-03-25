@@ -22,7 +22,7 @@ def listdir_fullpath(d):
 
 
 def get_data_dir_path():
-    """Fetch path to the data folder of maddeb.
+    """Fetch path to the data folder of madness_deblender.
 
     Returns
     -------
@@ -36,8 +36,8 @@ def get_data_dir_path():
     return data_dir
 
 
-def get_maddeb_config_path():
-    """Fetch path to maddeb config yaml file.
+def get_madness_deblender_config_path():
+    """Fetch path to madness_deblender config yaml file.
 
     Returns
     -------
@@ -46,6 +46,8 @@ def get_maddeb_config_path():
 
     """
     curdir = os.path.dirname(os.path.abspath(__file__))
-    get_maddeb_config_path = os.path.join(curdir, "maddeb_config.yaml")
+    get_madness_deblender_config_path = os.path.join(
+        curdir, "madness_deblender_config.yaml"
+    )
 
-    return get_maddeb_config_path
+    return get_madness_deblender_config_path

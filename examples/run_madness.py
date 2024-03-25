@@ -13,7 +13,6 @@ import sep
 import tensorflow as tf
 import tensorflow_probability as tfp
 import yaml
-
 from maddeb.Deblender import Deblend
 from maddeb.metrics import compute_aperture_photometry, compute_pixel_cosdist
 from maddeb.utils import get_data_dir_path, get_maddeb_config_path

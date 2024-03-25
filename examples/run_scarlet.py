@@ -16,7 +16,6 @@ import scarlet
 import scarlet.psf
 import sep
 import yaml
-
 from maddeb.metrics import compute_aperture_photometry, compute_pixel_cosdist
 from maddeb.utils import get_maddeb_config_path
 

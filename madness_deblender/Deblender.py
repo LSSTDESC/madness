@@ -10,9 +10,9 @@ import sep
 import tensorflow as tf
 import tensorflow_probability as tfp
 
-from maddeb.extraction import extract_cutouts
-from maddeb.FlowVAEnet import FlowVAEnet
-from maddeb.utils import get_data_dir_path
+from madness_deblender.extraction import extract_cutouts
+from madness_deblender.FlowVAEnet import FlowVAEnet
+from madness_deblender.utils import get_data_dir_path
 
 tfd = tfp.distributions
 
