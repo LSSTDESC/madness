@@ -6,7 +6,7 @@ authors = ["Biswajit Biswas <biswas@apc.in2p3.fr>"]
 readme = "README.md"
 keywords = ["galaxies", "deblending", "cosmology", "generative models"]
 license = "MIT"
-include = ["madness_deblender/data/*", "btksims"]
+include = ["madness_deblender/data/*"]
 repository = "https://github.com/b-biswas/madness"
 
 [tool.poetry.dependencies]
@@ -21,7 +21,6 @@ scikit-image = "*"
 sep = "*"
 galcheat = "*"
 numba = "*"
-btksims = {path="btksims", optional=true, develop=true}
 matplotlib = {version="*", optional=true}
 seaborn = {version="*", optional=true}
 pytest = {version="*", optional=true}
@@ -38,6 +37,5 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.extras]
-sims = ["btksims"]
 notebooks = ["jupyter", "ipykernel", "btksims", "matplotlib", "seaborn"]
-dev = ["pytest", "pre-commit", "jupyter", "ipykernel", "btksims", "matplotlib", "seaborn"]
+dev = ["pytest", "pre-commit", "jupyter", "ipykernel", "matplotlib", "seaborn"]
