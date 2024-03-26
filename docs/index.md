@@ -20,11 +20,11 @@ MADNESS Deblender is built on Tensorflow and Tensorflow Probability to allow sea
 The model present in the final paper is available at TODO and can be used to reproduce the results of the paper.
 
 ```
-from maddeb.Deblender import Deblend
+from madness_deblender.Deblender import Deblend
 from galcheat import Survey
 
 # initialize
-galcheat.get_survey(maddeb_config["LSST"])
+galcheat.get_survey(madness_deblender_config["LSST"])
 deb = Deblend(weights_path=weights_path, survey=survey)
 ```
 
@@ -35,7 +35,7 @@ MADNESS is designed to run the deblender on multiple fields in parallel to impro
 - list of the number of components in each field<br />
 For stability of the code, the list of detected positions for each field must be the same (appended with zeroes if required).
 
-Calling the instance of maddeb.Deblend runs the gradient descent algorithm.
+Calling the instance of madness_deblender.Deblend runs the gradient descent algorithm.
 ```
 deb(
     blended_fields,
@@ -46,7 +46,7 @@ deb(
 Further parameters can be passed to select the linear normalizing coefficient, learning rate, optimizer, and stopping criterion for the gradient descent.
 See the Deblending tutorial for more information.
 ### Accessing Results
-Although the solutions are obtained in the latent space, the corresponding image can direcctly be accessed though the instance of maddeb.Deblend.
+Although the solutions are obtained in the latent space, the corresponding image can direcctly be accessed though the instance of madness_deblender.Deblend.
 ```
 field0_results = deb.components[0] # All deblended galaxies in the first field
 field1_results = deb.components[1] # All deblended galaxies in the second field
