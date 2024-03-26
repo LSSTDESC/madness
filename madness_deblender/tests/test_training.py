@@ -1,14 +1,15 @@
 """Test training."""
+
 import os
 
 import numpy as np
 import tensorflow as tf
 import tensorflow_probability as tfp
 
-from maddeb.callbacks import changeAlpha, define_callbacks
-from maddeb.FlowVAEnet import FlowVAEnet
-from maddeb.losses import deblender_loss_fn_wrapper
-from maddeb.utils import get_data_dir_path
+from madness_deblender.callbacks import changeAlpha, define_callbacks
+from madness_deblender.FlowVAEnet import FlowVAEnet
+from madness_deblender.losses import deblender_loss_fn_wrapper
+from madness_deblender.utils import get_data_dir_path
 
 tfd = tfp.distributions
 

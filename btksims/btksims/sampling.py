@@ -1,4 +1,5 @@
 """Deifne Custom Sampling for BTK."""
+
 import warnings
 
 import numpy as np

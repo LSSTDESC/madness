@@ -1,8 +1,8 @@
 """First call to generate tf datasets."""
+
 import os
 
 import yaml
-
 from maddeb.dataset_generator import loadCATSIMDataset
 from maddeb.utils import get_maddeb_config_path
 

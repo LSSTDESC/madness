@@ -1,7 +1,8 @@
 """Test extract cutouts."""
+
 import numpy as np
 
-from maddeb.extraction import extract_cutouts
+from madness_deblender.extraction import extract_cutouts
 
 
 def test_cutouts_border():

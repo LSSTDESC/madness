@@ -7,8 +7,8 @@ import tensorflow as tf
 import tensorflow.keras.backend as K
 import tensorflow_probability as tfp
 
-from maddeb.losses import flow_loss_fn
-from maddeb.model import create_encoder, create_model_fvae
+from madness_deblender.losses import flow_loss_fn
+from madness_deblender.model import create_encoder, create_model_fvae
 
 tfd = tfp.distributions
 tfb = tfp.bijectors
@@ -140,7 +140,7 @@ class FlowVAEnet:
             verbose option for training.
             'auto', 0, 1, or 2. Verbosity mode. 0 = silent, 1 = progress bar, 2 = one line per epoch.
             'auto' defaults to 1 for most cases, but 2 when used with ParameterServerStrategy.
-            Note that the progress bar is not particularly useful when logged to a file, 
+            Note that the progress bar is not particularly useful when logged to a file,
             so verbose=2 is recommended when not running interactively (eg, in a production environment).
 
         """
@@ -179,9 +179,11 @@ class FlowVAEnet:
         )
 
         hist = self.vae_model.fit(
-            x=train_generator[0]
-            if isinstance(train_generator, tuple)
-            else train_generator,
+            x=(
+                train_generator[0]
+                if isinstance(train_generator, tuple)
+                else train_generator
+            ),
             y=train_generator[1] if isinstance(train_generator, tuple) else None,
             epochs=epochs,
             verbose=verbose,
@@ -245,9 +247,11 @@ class FlowVAEnet:
             experimental_run_tf_function=False,
         )
         hist = self.encoder.fit(
-            x=train_generator[0]
-            if isinstance(train_generator, tuple)
-            else train_generator,
+            x=(
+                train_generator[0]
+                if isinstance(train_generator, tuple)
+                else train_generator
+            ),
             y=train_generator[1] if isinstance(train_generator, tuple) else None,
             epochs=epochs,
             verbose=verbose,
@@ -309,9 +313,11 @@ class FlowVAEnet:
         LOG.info("Number of epochs: " + str(epochs))
 
         hist = self.flow_model.fit(
-            x=train_generator[0]
-            if isinstance(train_generator, tuple)
-            else train_generator,
+            x=(
+                train_generator[0]
+                if isinstance(train_generator, tuple)
+                else train_generator
+            ),
             y=train_generator[1] if isinstance(train_generator, tuple) else None,
             epochs=epochs,
             verbose=verbose,

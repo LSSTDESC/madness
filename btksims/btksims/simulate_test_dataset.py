@@ -8,9 +8,9 @@ import sys
 import btk
 import yaml
 from astropy.table import Table
+from maddeb.utils import get_maddeb_config_path
 
 from btksims.sampling import CustomSampling
-from maddeb.utils import get_maddeb_config_path
 
 # logging level set to INFO
 logging.basicConfig(format="%(message)s", level=logging.INFO)

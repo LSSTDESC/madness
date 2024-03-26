@@ -1,18 +1,18 @@
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.1.0
+  rev: v4.5.0
   hooks:
     - id: end-of-file-fixer
     - id: requirements-txt-fixer
     - id: trailing-whitespace
       args: [--markdown-linebreak-ext=md]
 - repo: https://github.com/PyCQA/isort
-  rev: 5.12.0
+  rev: 5.13.2
   hooks:
     - id: isort
       args: [--profile, black]
 - repo: https://github.com/asottile/pyupgrade
-  rev: v2.31.0
+  rev: v3.15.1
   hooks:
     - id: pyupgrade
       args: [--py37-plus]
@@ -28,7 +28,7 @@ repos:
                 btksims/btksims/__init__.py|
             )$
 - repo: https://github.com/psf/black
-  rev: 22.3.0
+  rev: 24.3.0
   hooks:
     - id: black
       exclude: |
@@ -37,18 +37,18 @@ repos:
                 btksims/pyproject.toml|
             )$
 - repo: https://github.com/kynan/nbstripout
-  rev: 0.5.0
+  rev: 0.7.1
   hooks:
     - id: nbstripout
       args:
             - --keep-output
 - repo: https://github.com/pycqa/pydocstyle
-  rev: 6.1.1
+  rev: 6.3.0
   hooks:
   - id: pydocstyle
     args: ['--ignore=D107,D204,D213,D203']
 - repo: https://github.com/nbQA-dev/nbQA
-  rev: 1.7.0
+  rev: 1.8.4
   hooks:
    - id: nbqa-black
      additional_dependencies: [black==22.3.0]

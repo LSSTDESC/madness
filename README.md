@@ -14,12 +14,12 @@ Till then the package needs to be installed via GitHub
 ## Installation
 For testing the deblender, the package can directly be installed from GitHub
 ```bash
-pip install git+https://github.com/b-biswas/MADNESS.git
+pip install git+https://github.com/b-biswas/madness.git
 ```
 For contributing (further instructions to be added soon):
 ```bash
-git clone https://github.com/b-biswas/MADNESS/
-cd MADNESS
+git clone https://github.com/b-biswas/madness/
+cd madness
 pip install -e .[dev]
 ```
 
