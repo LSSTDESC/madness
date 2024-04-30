@@ -3,6 +3,7 @@
 import numpy as np
 import sep
 from numba import jit
+import galsim
 from skimage.metrics import structural_similarity
 
 
@@ -266,6 +267,110 @@ def compute_aperture_photometry(
             results[band + "_phot_fluxerrs"].extend(fluxerr)
             results[band + "_phot_flags"].extend(flag)
 
+        results["galaxy_num"].append(galaxy_num)
+
+    return results
+
+
+def compute_shapes(
+    field_image,
+    predictions,
+    xpos,
+    ypos,
+    bkg_rms,
+    survey,
+):
+    """Calculate aperture photometry.
+
+    Parameters
+    ----------
+    field_image: np array
+        image the field of galaxies.
+    predictions: np array
+        predictions of the model/ ground truth
+    xpos: np array/list
+        x positions of the detections
+    ypos: np array/list
+        y positions of the detections
+    bkg_rms: list
+        list with the rms background in each band.
+    survey: galcheat.survey object
+        galcheat survey object to fetch survey details
+
+    Returns
+    -------
+    results: astropy.Table
+        Table with flux and flux_errs.
+
+    """
+    # results = {}
+    # for band in survey.available_filters:
+    #     for column in ["_e", "_e1", "_e2"]:
+    #         results[band + column] = []
+
+    # results["galaxy_num"] = []
+
+    # residual_field = field_image
+    # if predictions is not None:
+    #     for prediction in predictions:
+    #         residual_field = residual_field - prediction
+
+    # for galaxy_num in range(len(xpos)):
+
+    #     # actual galaxy
+    #     if predictions is None:
+    #         galaxy = residual_field
+    #     else:
+    #         galaxy = residual_field + predictions[galaxy_num]
+
+    #     galaxy = galaxy.copy(order="C")
+
+    #     for band_num, band in enumerate(survey.available_filters):
+
+    #         res = galsim.hsm.FindAdaptiveMom(
+    #             object_image=galsim.Image(predictions[galaxy_num][band_num]), 
+    #             guess_centroid=galsim.PositionD(xpos[galaxy_num], ypos[galaxy_num]),
+    #         )
+
+    #         results[band + "_e"].append(res.observed_shape.e)
+    #         results[band + "_e1"].append(res.observed_shape.e1)
+    #         results[band + "_e2"].append(res.observed_shape.e2)
+            
+    #     results["galaxy_num"].append(galaxy_num)
+    results = {}
+    band ="r"
+    band_num=2
+    
+    for column in ["_e", "_e1", "_e2"]:
+        results[band + column] = []
+
+    results["galaxy_num"] = []
+
+    residual_field = field_image
+    if predictions is not None:
+        for prediction in predictions:
+            residual_field = residual_field - prediction
+
+    for galaxy_num in range(len(xpos)):
+
+        # actual galaxy
+        if predictions is None:
+            galaxy = residual_field
+        else:
+            galaxy = residual_field + predictions[galaxy_num]
+
+        galaxy = galaxy.copy(order="C")
+
+        res = galsim.hsm.FindAdaptiveMom(
+            object_image=galsim.Image(predictions[galaxy_num][band_num]), 
+            guess_centroid=galsim.PositionD(xpos[galaxy_num], ypos[galaxy_num]),
+            strict=False,
+        )
+
+        results[band + "_e"].append(res.observed_shape.e)
+        results[band + "_e1"].append(res.observed_shape.e1)
+        results[band + "_e2"].append(res.observed_shape.e2)
+            
         results["galaxy_num"].append(galaxy_num)
 
     return results
