@@ -1,9 +1,9 @@
 """Metrics for comparison."""
 
+import galsim
 import numpy as np
 import sep
 from numba import jit
-import galsim
 from skimage.metrics import structural_similarity
 
 
@@ -328,19 +328,19 @@ def compute_shapes(
     #     for band_num, band in enumerate(survey.available_filters):
 
     #         res = galsim.hsm.FindAdaptiveMom(
-    #             object_image=galsim.Image(predictions[galaxy_num][band_num]), 
+    #             object_image=galsim.Image(predictions[galaxy_num][band_num]),
     #             guess_centroid=galsim.PositionD(xpos[galaxy_num], ypos[galaxy_num]),
     #         )
 
     #         results[band + "_e"].append(res.observed_shape.e)
     #         results[band + "_e1"].append(res.observed_shape.e1)
     #         results[band + "_e2"].append(res.observed_shape.e2)
-            
+
     #     results["galaxy_num"].append(galaxy_num)
     results = {}
-    band ="r"
-    band_num=2
-    
+    band = "r"
+    band_num = 2
+
     for column in ["_e", "_e1", "_e2"]:
         results[band + column] = []
 
@@ -362,7 +362,7 @@ def compute_shapes(
         galaxy = galaxy.copy(order="C")
 
         res = galsim.hsm.FindAdaptiveMom(
-            object_image=galsim.Image(predictions[galaxy_num][band_num]), 
+            object_image=galsim.Image(predictions[galaxy_num][band_num]),
             guess_centroid=galsim.PositionD(xpos[galaxy_num], ypos[galaxy_num]),
             strict=False,
         )
@@ -370,7 +370,7 @@ def compute_shapes(
         results[band + "_e"].append(res.observed_shape.e)
         results[band + "_e1"].append(res.observed_shape.e1)
         results[band + "_e2"].append(res.observed_shape.e2)
-            
+
         results["galaxy_num"].append(galaxy_num)
 
     return results
