@@ -105,27 +105,6 @@ def deblender_loss_fn_wrapper(
             loss = loss * (1 - ch_alpha.alpha * ssim)
 
         loss = tf.reduce_mean(loss)
-        # if ch_alpha.alpha > 0:
-        # band_normalizer = tf.reduce_max(y+1e-9, axis=[1, 2], keepdims=True)
-        # beta_factor = 2.5
-        # tf.stop_gradient(ch_alpha.alpha)
-        # loss2 = tf.keras.backend.binary_crossentropy(
-        #     tf.math.tanh(
-        #         tf.math.asinh(
-        #             beta_factor * (predicted_galaxy / band_normalizer)
-        #         )
-        #     ),
-        #     tf.math.tanh(
-        #         tf.math.asinh(
-        #             beta_factor * (y / band_normalizer)
-        #         )
-        #     ),
-        # )  # computes the mean across axis 0
-        # loss2 = tf.reduce_sum(loss2)
-        # loss = loss2
-        # weight = tf.math.reduce_max(x, axis= [1, 2])
-        # objective = tf.math.reduce_sum(loss, axis=[1, 2])
-        # weighted_objective = -tf.math.reduce_mean(tf.divide(objective, weight))
 
         return loss
 

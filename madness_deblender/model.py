@@ -121,13 +121,13 @@ def create_decoder(
         )(h)
         h = PReLU()(h)
 
-    h = Conv2DTranspose(
-        filters=filters[0],
-        kernel_size=(3, 3),
-        activation=None,
-        padding="same",
-    )(h)
-    h = PReLU()(h)
+    # h = Conv2DTranspose(
+    #     filters=filters[0],
+    #     kernel_size=(3, 3),
+    #     activation=None,
+    #     padding="same",
+    # )(h)
+    # h = PReLU()(h)
 
     # keep the output of the last layer as relu as we want only positive flux values.
     # h = Conv2DTranspose(input_shape[-1] * 2, (3, 3), activation="relu", padding="same")(h)
