@@ -60,3 +60,6 @@ repos:
    - id: nbqa-flake8
      additional_dependencies: [flake8==4.0.1]
      args: ['--ignore=E501,E402,E203,E731,W503']
+
+default_language_version:
+    python: python3.9
