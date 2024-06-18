@@ -63,7 +63,6 @@ def create_encoder(
         h = PReLU()(h)
 
     h = Flatten()(h)
-    h = PReLU()(h)
     h = Dense(dense_layer_units)(h)
     h = PReLU()(h)
     h = Dense(
