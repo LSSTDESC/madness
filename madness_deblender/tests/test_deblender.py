@@ -2,12 +2,12 @@
 
 import numpy as np
 
-from madness_deblender.Deblender import Deblend, compute_residual
+from madness_deblender.deblender import Deblender, compute_residual
 
 
 def test_deblending():
     """Test deblending."""
-    deb = Deblend(
+    deb = Deblender(
         stamp_shape=5,
         latent_dim=4,
         filters_encoder=[1, 1, 1, 1],
@@ -68,7 +68,7 @@ def test_deblending():
 
 def test_scatter_and_sub():
     """Test scatter and sub."""
-    deb = Deblend(
+    deb = Deblender(
         stamp_shape=5,
         latent_dim=4,
         filters_encoder=[1, 1, 1, 1],

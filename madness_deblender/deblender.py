@@ -146,7 +146,7 @@ def compute_residual(
     return residual_field
 
 
-class Deblend:
+class Deblender:
     """Run the deblender."""
 
     def __init__(
@@ -283,7 +283,7 @@ class Deblend:
             list stores the bandwise linear normalizing/scaling factor.
             if int is passed, the same scaling factor is used for all.
         convergence_criterion: tfp.optimizer.convergence_criteria
-            For termination of the optimization loop
+            For termination of the optimization loop.
         use_debvader: bool
             Use the encoder as a deblender to set the initial position for deblending.
         optimizer: tf.keras.optimizers
