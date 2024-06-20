@@ -146,7 +146,7 @@ def compute_residual(
     return residual_field
 
 
-class Deblend:
+class Deblender:
     """Run the deblender."""
 
     def __init__(
