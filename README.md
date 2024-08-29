@@ -8,13 +8,10 @@ Maximum A posteriori with Deep NEural networks for Source Separation [arXiv:2408
 This repository contains the code for the MADNESS project under development within the LSST Dark Energy Science Collaboration (LSST DESC).
 MADNESS obtains the MAP solution to deblend galaxies in a blended scene by performing gradient descent in a VAE latent space.
 
-A release is being planned soon...
-Till then the package needs to be installed using the GitHub repository
-
 ## Installation
 For testing the deblender, the package can be installed directly from GitHub
 ```bash
-pip install git+https://github.com/b-biswas/madness.git
+ pip install madness-deblender
 ```
 For contributing (further instructions to be added soon):
 ```bash
