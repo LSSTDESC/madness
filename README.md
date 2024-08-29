@@ -1,5 +1,6 @@
 # MADNESS Deblender
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![pytest](https://github.com/b-biswas/madness/actions/workflows/unit_test.yml/badge.svg)](https://github.com/b-biswas/madness/actions/workflows/unit_test.yml)
 [![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
