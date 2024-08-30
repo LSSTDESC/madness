@@ -17,6 +17,7 @@ jobs:
         python-version: '3.x'
     - name: Generate coverage report
       run: |
+        pip3 install --upgrade pip
         pip install pytest
         pip install -e .[dev]
         pip install pytest-cov
