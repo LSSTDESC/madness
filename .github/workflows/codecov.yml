@@ -1,4 +1,4 @@
-name: codecov
+name: pytest
 on: [push]
 jobs:
   run:
