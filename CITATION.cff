@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Biswas"
+  given-names: "Biswajit"
+- family-names: "Aubourg"
+  given-names: "Eric"
+- family-names: "Boucaud"
+  given-names: "Alexandre"
+- family-names: "Guinot"
+  given-names: "Axel"
+- family-names: "Lao"
+  given-names: "Junpeng"
+- family-names: "Roucelle"
+  given-names: "Cécile"
+
+title: "MADNESS Deblender"
+version: 1.0.0-beta1
+date-released: 2024-07-20
+url: "https://github.com/b-biswas/madness/"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Biswas"
+    given-names: "Biswajit"
+  - family-names: "Aubourg"
+    given-names: "Eric"
+  - family-names: "Boucaud"
+    given-names: "Alexandre"
+  - family-names: "Guinot"
+    given-names: "Axel"
+  - family-names: "Lao"
+    given-names: "Junpeng"
+  - family-names: "Roucelle"
+    given-names: "Cécile"
+  doi: "10.48550/arXiv.2408.15236"
+  journal: "arXiv Preprint"
+  month: 8
+  start: 1 # First page number
+  end: 20 # Last page number
+  title: "MADNESS Deblender: Maximum A posteriori with Deep NEural networks for Source Separation"
+#  issue: 1
+#  volume: 1
+  year: 2024
