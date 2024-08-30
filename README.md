@@ -1,6 +1,8 @@
 # MADNESS Deblender
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![pytest](https://github.com/b-biswas/madness/actions/workflows/unit_test.yml/badge.svg)](https://github.com/b-biswas/madness/actions/workflows/unit_test.yml)
+[![pytest](https://github.com/b-biswas/madness/actions/workflows/pytest.yml/badge.svg)](https://github.com/b-biswas/madness/actions/workflows/pytest.yml)
+[![codecov](https://codecov.io/gh/b-biswas/madness/graph/badge.svg?token=2YNVQ7C4CU)](https://codecov.io/gh/b-biswas/madness)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 [![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
