@@ -1,9 +1,11 @@
 # MADNESS Deblender
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![PyPI - Version](https://img.shields.io/pypi/v/hub?color=blue&logo=pypi&logoColor=white)](https://img.shields.io/pypi/v/madness-deblender)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![pytest](https://github.com/b-biswas/madness/actions/workflows/pytest.yml/badge.svg)](https://github.com/b-biswas/madness/actions/workflows/pytest.yml)
 [![codecov](https://codecov.io/gh/b-biswas/madness/graph/badge.svg?token=2YNVQ7C4CU)](https://codecov.io/gh/b-biswas/madness)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-blue.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Maximum A posteriori with Deep NEural networks for Source Separation [arXiv:2408.15236](https://arxiv.org/abs/2408.15236v1)
