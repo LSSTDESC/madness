@@ -14,14 +14,15 @@ python = "^3.9"
 numpy = "*"
 pandas = "*"
 astropy = "*"
-tensorflow = {version = "^2.15.0" }
+
 # macOS-specific dependencies
 tensorflow-macos = { version = "2.15", markers = "sys_platform == 'darwin'" }
 #tensorflow = { version = "2.15", markers = "sys_platform == 'darwin'" }
 tensorflow-metal = { version = "*", markers = "sys_platform == 'darwin'" }
 
 # Linux-specific dependencies
-tensorflow-probability = "0.23"
+tensorflow = { version = "2.15", markers = "sys_platform == 'linux'" }
+tensorflow-probability = "0.19"
 scikit-image = "*"
 sep = "*"
 galcheat = "*"
