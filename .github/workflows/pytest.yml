@@ -5,16 +5,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: ['ubuntu-latest']
+        os: ['ubuntu-latest', 'macos-latest']
     env:
       OS: ${{ matrix.os }}
-      PYTHON: '3.9'
+      PYTHON: '^3.9,<3.12'
     steps:
     - uses: actions/checkout@main
     - name: Setup Python
       uses: actions/setup-python@main
       with:
-        python-version: '3.9'
+        python-version: '^3.9,<3.12'
     - name: Generate coverage report
       run: |
         pip3 install --upgrade pip
