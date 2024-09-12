@@ -10,17 +10,25 @@ include = ["madness_deblender/data/*"]
 repository = "https://github.com/b-biswas/madness"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "3.9"
 numpy = "*"
 pandas = "*"
 astropy = "*"
-tensorflow = "2.11.0"
-tensorflow-probability = "0.19.0"
-tensorflow-datasets = "*"
+
+
+
+# macOS-specific dependencies
+tensorflow-macos = { version = "2.15", markers = "sys_platform == 'darwin'" }
+#tensorflow-metal = { version = "1.1", markers = "sys_platform == 'darwin'" }
+
+
+# Linux-specific dependencies
+tensorflow = { version = "2.15", markers = "sys_platform == 'linux'" }
+tensorflow-probability = "0.23"
 scikit-image = "*"
 sep = "*"
 galcheat = "*"
-numba = "*"
+
 matplotlib = {version="*", optional=true}
 seaborn = {version="*", optional=true}
 pytest = {version="*", optional=true}
