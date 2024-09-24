@@ -20,7 +20,7 @@ For testing the deblender, the package can be installed directly from GitHub
 ```
 For contributing (further instructions to be added soon):
 ```bash
-git clone https://github.com/b-biswas/madness/
+git clone https://github.com/LSSTDESC/madness/
 cd madness
 pip install -e .[dev]
 ```
