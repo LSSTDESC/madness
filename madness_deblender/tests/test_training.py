@@ -64,5 +64,4 @@ def test_vae_training():
             linear_norm_coeff=1,
         ),
         verbose=2,
-        # loss_function=vae_loss_fn_wrapper(sigma=noise_sigma, linear_norm_coeff=linear_norm_coeff),
     )
