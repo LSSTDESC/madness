@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "madness-deblender"
-version = "v1.0_beta1"
+version = "v1.0.0"
 description = "Galaxy deblender from variational autoencoders"
 authors = ["Biswajit Biswas <biswas@apc.in2p3.fr>"]
 readme = "README.md"
