@@ -156,7 +156,6 @@ class FlowVAEnet:
         LOG.info("\n--- Training only VAE network ---")
         LOG.info("Encoder status: " + str(train_encoder))
         LOG.info("Decoder status: " + str(train_decoder))
-        # LOG.info("Initial learning rate: " + str(lr))
 
         metrics = ["mse"]
 
@@ -234,9 +233,6 @@ class FlowVAEnet:
         """
         self.encoder.summary()
         LOG.info("\n--- Training only encoder network ---")
-
-        # LOG.info("Initial learning rate: " + str(lr))
-
         LOG.info("Number of epochs: " + str(epochs))
 
         if loss_function is None:
@@ -309,7 +305,6 @@ class FlowVAEnet:
         self.flow_model.summary()
 
         LOG.info("\n--- Training only FLOW network ---")
-        # LOG.info("Initial learning rate: " + str(lr))
         LOG.info("Number of epochs: " + str(epochs))
 
         hist = self.flow_model.fit(

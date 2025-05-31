@@ -51,7 +51,6 @@ def create_encoder(
     input_layer = Input(shape=(input_shape))
     h = input_layer
     # Define the model
-    # h = BatchNormalization(name="batchnorm1")(input_layer)
     for i in range(len(filters)):
         h = Conv2D(
             filters[i],
@@ -119,18 +118,7 @@ def create_decoder(
             strides=(2, 2),
         )(h)
         h = PReLU()(h)
-
-    # h = Conv2DTranspose(
-    #     filters=filters[0],
-    #     kernel_size=(3, 3),
-    #     activation=None,
-    #     padding="same",
-    # )(h)
-    # h = PReLU()(h)
-
-    # keep the output of the last layer as relu as we want only positive flux values.
-    # h = Conv2DTranspose(input_shape[-1] * 2, (3, 3), activation="relu", padding="same")(h)
-    # h = Conv2D(input_shape[-1] * 2, (3, 3), activation="relu", padding="same")(h)
+    
     h = Conv2DTranspose(input_shape[-1], (3, 3), activation="relu", padding="same")(h)
 
     # In case the last convolutional layer does not provide an image of the size of the input image, cropp it.
@@ -142,19 +130,6 @@ def create_decoder(
             h = Cropping2D(
                 ((cropping // 2, cropping // 2 + 1), (cropping // 2, cropping // 2 + 1))
             )(h)
-
-    # if sigma_cutoff is None:
-    #     sigma_cutoff = 1e-3
-    # # Build the encoder only
-    # print(sigma_cutoff)
-    # h = tfp.layers.DistributionLambda(
-    #     make_distribution_fn=lambda t: tfd.Normal(
-    #         loc=t[..., : input_shape[-1]],
-    #         scale=sigma_cutoff
-    #         + tf.zeros_like(t[..., : input_shape[-1]], dtype=tf.float32),
-    #     ),
-    #     # convert_to_tensor_fn=tfp.distributions.Distribution.mean,
-    # )(h)
 
     return Model(input_layer, h, name="decoder")
 
@@ -189,11 +164,6 @@ def create_flow(latent_dim=10, num_nf_layers=6):
     permute_arr = np.arange(0, latent_dim)[(np.arange(0, latent_dim) - 3)[:]]
 
     for i in range(num_nf_layers):
-
-        # add batchnorm layers
-        # bijects.append(tfb.BatchNormalization()) # otherwise log_prob returns nans!
-        # TODO: make batchnorms every 2 layers
-
         # create a MAF
         anet = tfb.AutoregressiveNetwork(
             params=2,
@@ -301,9 +271,6 @@ def create_model_fvae(
     # Define the prior for the latent space
     activity_regularizer = None
     if kl_prior is not None:
-        # prior = tfd.Independent(
-        #    tfd.Normal(loc=tf.zeros(latent_dim), scale=.5), reinterpreted_batch_ndims=1
-        # )
         activity_regularizer = tfp.layers.KLDivergenceRegularizer(
             kl_prior, weight=0.01 if kl_weight is None else kl_weight
         )
@@ -317,6 +284,6 @@ def create_model_fvae(
     vae_model = Model(inputs=x_input, outputs=decoder(z))
     flow_model = Model(
         inputs=x_input, outputs=flow(z)
-    )  # without sample I get the following error: AttributeError: 'MultivariateNormalTriL' object has no attribute 'graph'
+    )  
 
     return vae_model, flow_model, encoder, decoder, flow, td

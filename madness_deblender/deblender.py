@@ -225,11 +225,6 @@ class Deblender:
             )
         self.flow_vae_net.vae_model.trainable = False
 
-        # self.flow_vae_net.vae_model.trainable = False
-        # self.flow_vae_net.flow_model.trainable = False
-
-        # self.flow_vae_net.vae_model.summary()
-
         self.blended_fields = None
         self.detected_positions = None
         self.cutout_size = stamp_shape
@@ -378,12 +373,6 @@ class Deblender:
             ],
         )
 
-        # tf.print(postage_stamp.shape)
-        # tf.print(reconstructions.shape)
-        # tf.print(index_pos_to_sub.shape)
-        # tf.print(num_components.shape)
-        # tf.print(sig_sq.shape)
-
         reconstruction_loss = tf.map_fn(
             vectorized_compute_reconst_loss,
             elems=(
@@ -399,27 +388,12 @@ class Deblender:
                 dtype=tf.float32,
             ),
         )
-        # print(f"num fields: {self.num_fields}")
-
-        # reconstruction_loss = residual_field**2 / sig_sq
-        # tf.print(sig_sq, output_stream=sys.stdout)
-
-        # reconstruction_loss = tf.math.reduce_sum(reconstruction_loss, axis=[1, 2, 3])
-        # tf.print(reconstruction_loss.shape)
-        # reconstruction_loss = reconstruction_loss / 2
 
         log_prob = self.flow_vae_net.flow(z)
 
         log_prob = tf.reduce_sum(
             tf.reshape(log_prob, [self.num_fields, self.max_number]), axis=[1]
         )
-        # tf.print(log_prob.shape)
-
-        # tf.print(reconstruction_loss, output_stream=sys.stdout)
-        # tf.print(log_likelihood, output_stream=sys.stdout)
-
-        # tf.print(reconstruction_loss)
-        # tf.print(log_likelihood)
 
         final_loss = reconstruction_loss
 
@@ -427,32 +401,6 @@ class Deblender:
             final_loss = reconstruction_loss - log_prob
 
         return final_loss, reconstruction_loss, log_prob
-
-    # def get_index_pos_to_sub(self):
-    #     """Get index position to run tf.tensor_scatter_nd_sub."""
-    #     index_list = []
-    #     for field_num in range(self.num_fields):
-    #         inner_list = []
-    #         for i in range(self.max_number):
-    #             indices = (
-    #                 np.indices((self.cutout_size, self.cutout_size, self.num_bands))
-    #                 .reshape(3, -1)
-    #                 .T
-    #             )
-    #             detected_position = self.detected_positions[field_num][i]
-
-    #             starting_pos_x = round(detected_position[0]) - int(
-    #                 (self.cutout_size - 1) / 2
-    #             )
-    #             starting_pos_y = round(detected_position[1]) - int(
-    #                 (self.cutout_size - 1) / 2
-    #             )
-    #             indices[:, 0] += int(starting_pos_x)
-    #             indices[:, 1] += int(starting_pos_y)
-    #             inner_list.append(indices)
-    #         index_list.append(inner_list)
-
-    #     return np.array(index_list)
 
     def get_index_pos_to_sub(self):
         """Get index position to run tf.tensor_scatter_nd_sub."""
@@ -606,7 +554,7 @@ class Deblender:
 
             LOG.info("\n--- Starting gradient descent in the latent space ---")
             LOG.info(f"Maximum number of iterations: {self.max_iter}")
-            # LOG.info("Learning rate: " + str(optimizer.lr.numpy()))
+
             LOG.info(f"Number of fields: {self.num_fields}")
             LOG.info(f"Number of Galaxies: {self.num_components}")
             LOG.info(f"Dimensions of latent space: {self.latent_dim}")
@@ -619,7 +567,6 @@ class Deblender:
                 self.get_index_pos_to_sub(),
                 dtype=tf.int32,
             )
-            # padding_infos = self.get_padding_infos()
 
             if self.noise_sigma is None:
                 noise_level = self.compute_noise_sigma()
@@ -633,7 +580,6 @@ class Deblender:
             # to ensure that the log likelihood does not change due to scaling/normalizing
 
             sig_sq = self.blended_fields / self.linear_norm_coeff + noise_level**2
-            # sig_sq[sig_sq <= (5 * noise_level)] = 0
 
             results = tfp.math.minimize(
                 loss_fn=self.generate_grad_step_loss(
