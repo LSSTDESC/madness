@@ -1,5 +1,14 @@
 """init file."""
 
-from importlib import metadata
+import os
+import tomli  # or 'import tomllib' if Python 3.11+
 
-__version__ = metadata.version("madness_deblender")
+def get_version():
+    here = os.path.abspath(os.path.dirname(__file__))
+    pyproject_path = os.path.join(here, "..", "pyproject.toml")
+
+    with open(pyproject_path, "rb") as f:
+        pyproject_data = tomli.load(f)  # Use tomllib.load(f) in Python 3.11+
+    return pyproject_data["tool"]["poetry"]["version"]
+
+__version__ = get_version()

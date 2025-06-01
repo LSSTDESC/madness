@@ -15,7 +15,7 @@ authors:
   given-names: "Cécile"
 
 title: "MADNESS Deblender"
-version: 1.0.0-beta1
+version: 1.0.0
 date-released: 2024-07-20
 url: "https://github.com/b-biswas/madness/"
 preferred-citation:
