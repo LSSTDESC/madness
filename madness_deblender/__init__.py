@@ -1,7 +1,7 @@
 """init file."""
 
 import os
-import tomli  # or 'import tomllib' if Python 3.11+
+import tomli  # or change to 'import tomllib' if Python 3.11+ 
 
 def get_version():
     here = os.path.abspath(os.path.dirname(__file__))
